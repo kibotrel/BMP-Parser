@@ -8,6 +8,7 @@ objs
 
 # Executables - Scripts
 a.out
+exe
 .sh
 
 # Debug
