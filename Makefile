@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 16:29:02 by kibotrel          #+#    #+#              #
-#    Updated: 2019/09/30 18:12:59 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/09/30 21:17:44 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 # Executable / Library (Can be changed).
 
 FT				= libft.a
-NAME			= libbmp.a
+NAME			= a.out #libbmp.a
 
 # Color codes (Can be changed).
 
@@ -44,6 +44,9 @@ INCS_DIR		+= ../../School/42-Libft/incs #../libft/incs
 # to organise source files (Can be changed).
 
 OBJS_SUBDIRS	:= core
+OBJS_SUBDIRS	+= clean
+OBJS_SUBDIRS	+= setup
+OBJS_SUBDIRS	+= display
 
 #------------------------------------ FILES -----------------------------------#
 
@@ -54,11 +57,14 @@ LFT				= $(LFT_DIR)/$(FT)
 # Used header at each compilation to check file integrity (Can be changed).
 
 INCS			:= incs/bmp.h
+INCS			+= incs/macros.h
 
 # Source files (Can be changed)
 
-SRCS			:= core/main.c
-
+SRCS			:= core/bmp_to_array.c
+SRCS			+= clean/clean.c
+SRCS			+= setup/setup.c
+SRCS			+= display/display.c
 
 #-------------------------------- MISCELANEOUS --------------------------------#
 
