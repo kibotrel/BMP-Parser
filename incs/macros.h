@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 18:15:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/09/30 20:19:24 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/01 18:33:49 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **	Useful macros
 */
 
-# define BUFFER	33554432
+# define BUFFER	16842752
 
 /*
 **	Error codes
