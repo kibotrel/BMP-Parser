@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 16:29:02 by kibotrel          #+#    #+#              #
-#    Updated: 2019/09/30 21:17:44 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/10/02 06:24:00 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,9 @@ INCS_DIR		+= ../../School/42-Libft/incs #../libft/incs
 
 OBJS_SUBDIRS	:= core
 OBJS_SUBDIRS	+= clean
+OBJS_SUBDIRS	+= maths
 OBJS_SUBDIRS	+= setup
+OBJS_SUBDIRS	+= chunks
 OBJS_SUBDIRS	+= display
 
 #------------------------------------ FILES -----------------------------------#
@@ -62,9 +64,12 @@ INCS			+= incs/macros.h
 # Source files (Can be changed)
 
 SRCS			:= core/bmp_to_array.c
-SRCS			+= clean/clean.c
-SRCS			+= setup/setup.c
-SRCS			+= display/display.c
+SRCS			+= clean/flush_streams.c
+SRCS			+= maths/endians.c
+SRCS			+= maths/infos.c
+SRCS			+= setup/infos.c
+SRCS			+= chunks/header.c
+SRCS			+= display/exit_status.c
 
 #-------------------------------- MISCELANEOUS --------------------------------#
 
@@ -97,8 +102,8 @@ CFLAGS			= $(C_INCS) -Wall -Wextra -Werror
 # to prompt some informations (Can't be changed).
 
 $(D_OBJS)%.o: $(D_SRCS)%.c $(INCS)
-	@echo "$(YELLOW)      - Compiling :$(RESET)" $<
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@ echo "$(YELLOW)      - Compiling :$(RESET)" $<
+	@ $(CC) $(CFLAGS) -c $< -o $@
 
 # Implicit make rule simply using dependancies
 # to compile our project (Can't be canged).
@@ -106,35 +111,35 @@ $(D_OBJS)%.o: $(D_SRCS)%.c $(INCS)
 all: $(C_SUBDIRS) $(NAME)
 
 $(NAME): $(LFT) $(OBJS_DIR) $(C_OBJS)
-	@echo "$(YELLOW)\n      - Building $(RESET)$(NAME) $(YELLOW)...\n$(RESET)"
-	@$(CC) $(CFLAGS) -o $(NAME) $(C_OBJS) $(LIBS) #@ar rcs $(NAME) $(C_OBJS)
-	@echo "$(GREEN)***   Project $(NAME) successfully compiled   ***\n$(RESET)"
+	@ echo "$(YELLOW)\n      - Building $(RESET)$(NAME) $(YELLOW)...\n$(RESET)"
+	@ $(CC) $(CFLAGS) -o $(NAME) $(C_OBJS) $(LIBS) #@ar rcs $(NAME) $(C_OBJS)
+	@ echo "$(GREEN)***   Project $(NAME) successfully compiled   ***\n$(RESET)"
 
 # Libraries installion using their own Makefile (Can be changed).
 
 $(LFT):
-	@make -sC $(LFT_DIR) -j
+	@ make -sC $(LFT_DIR) -j
 
 # Rules used to create folders if they aren't already existing (Can be changed).
 
 $(OBJS_DIR):
-	@mkdir -p $(OBJS_DIR)
+	@ mkdir -p $(OBJS_DIR)
 
 $(C_SUBDIRS):
-	mkdir -p $(C_SUBDIRS)
+	@ mkdir -p $(C_SUBDIRS)
 
 # Deleting all .o files. (Can't be changed).
 
 clean:
-	@echo "$(GREEN)***   Deleting all object from $(NAME)   ...   ***\n$(RESET)"
-	@$(RM) $(C_OBJS)
+	@ echo "$(GREEN)***   Deleting all object from $(NAME)   ...   ***\n$(RESET)"
+	@ $(RM) $(C_OBJS)
 
 # Deleting all executables and libraries after cleaning up
 # all .o files (Can't be changed).
 
 fclean: clean
-	@echo "$(GREEN)***   Deleting library $(NAME)   ...   ***\n$(RESET)"
-	@$(RM) $(NAME)
+	@ echo "$(GREEN)***   Deleting library $(NAME)   ...   ***\n$(RESET)"
+	@ $(RM) $(NAME)
 # Re-compile everything (Can't be changed).
 
 re: fclean all

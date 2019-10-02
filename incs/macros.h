@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 18:15:34 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/01 18:33:49 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/02 02:19:29 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,18 @@
 **	Useful macros
 */
 
-# define BUFFER	16842752
+# define BMP_SIGN		0x424D
+# define DIB_SIZE		108u
+# define MAX_SIZE		16842752u
+# define BUFFER_SIZE	6
 
 /*
-**	Error codes
+**	Byte swapping.
 */
+
+# define B3				0xFF
+# define B2				0xFF00
+# define B1				0xFF0000
+# define B0				0xFF000000
 
 #endif
