@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 16:29:02 by kibotrel          #+#    #+#              #
-#    Updated: 2019/10/03 07:02:23 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/10/03 07:07:27 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -128,7 +128,7 @@ $(OBJS_DIR):
 	@ mkdir -p $(OBJS_DIR)
 
 $(C_SUBDIRS):
-	mkdir -p $(C_SUBDIRS)
+	@ mkdir -p $(C_SUBDIRS)
 
 # Deleting all .o files. (Can't be changed).
 
