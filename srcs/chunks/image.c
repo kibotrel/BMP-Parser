@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 06:42:37 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/03 10:48:14 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/03 11:15:35 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ void			build_image(t_file *file, uint8_t *stream, t_info info)
 	uint32_t	x;
 	uint32_t	pixel;
 
-	y = -1;
+	y = info.dib.res.y;
 	x = 0;
-	while (++y < info.dib.res.y)
+	while (--y >= 0)
 	{
 		x = 0;
 		i = 0;
 		while (x < info.row)
 		{
 			pixel = build_pixel(stream + x + y * info.scanline);
-			file->pixels[y * info.dib.res.x + i++] = pixel;
+			file->pixels[(info.dib.res.y - y + 1) * info.dib.res.x + i++] = pixel;
 			x += info.bytes;
 		}
 	}
