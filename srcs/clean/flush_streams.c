@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 19:38:46 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/03 02:29:45 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/03 05:09:36 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 int	wipe(t_file *file, uint32_t status)
 {
+	if (file->pixels)
+		free(file->pixels);
 	if (file->stream)
 		free(file->stream);
 	return (dislay_output(file, status));

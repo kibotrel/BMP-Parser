@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 16:29:02 by kibotrel          #+#    #+#              #
-#    Updated: 2019/10/02 06:24:00 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/10/03 05:09:06 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,8 @@ SRCS			+= clean/flush_streams.c
 SRCS			+= maths/endians.c
 SRCS			+= maths/infos.c
 SRCS			+= setup/infos.c
+SRCS			+= setup/image.c
+SRCS			+= chunks/image.c
 SRCS			+= chunks/header.c
 SRCS			+= display/exit_status.c
 

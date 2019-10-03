@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 17:59:02 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/03 02:31:49 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/03 06:14:09 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ typedef enum		e_errors
 	BMP_E_DIB,
 	BMP_E_BPP,
 	BMP_E_COMPRESSION,
-	BMP_E_IMAGE,
 	BMP_E_HEADER,
-	BMP_WIP,
+	BMP_E_OFFSET,
+	BMP_E_RES,
+	BMP_E_PADDING,
 	BMP_ERROR_COUNT
 }					t_errors;
 
@@ -113,6 +114,12 @@ void				presets(t_file *file);
 void				setup_infos(t_info *data);
 
 /*
+**	setup/image.c
+*/
+
+void				load_image(t_file *file, t_bmp *image);
+
+/*
 **	chuncks/header.c
 */
 
@@ -124,7 +131,7 @@ int					check_size(uint32_t *weight, uint8_t *buffer);
 **	chuncks/image.c
 */
 
-int					build_image(t_file *file);
+void				build_image(t_file *file, uint8_t *stream, t_info info);
 
 /*
 **	maths/endians.c

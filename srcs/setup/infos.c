@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 20:02:58 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/03 02:28:33 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/03 06:14:57 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void		setup_infos(t_info *info)
 {
 	info->padding = padding(info->dib);
 	info->scanline = scanline(info->dib, info->padding);
+	info->bytes = info->dib.bpp / 8;
 	info->row = info->scanline - info->padding;
 	info->memory = memory(info->dib);
 }
@@ -34,10 +35,10 @@ static void	setup_errors(t_file *file)
 	file->msg[8] = ")\n\t- DIB not supported (expected BITMAPV4HEADER).\n\0";
 	file->msg[9] = ")\n\t- Bits per pixel not supported (expected 24bits).\n\0";
 	file->msg[10] = ")\n\t- Compression method not supported (expected 0).\n\0";
-	file->msg[11] = ")\n\t- Unable to retrieve all the data.\n\0";
-	file->msg[12] = ")\n\t-  Misformated header encountered.\n\0";
-	file->msg[13] = ")\n\t- Not yet done.\n\0";
-
+	file->msg[11] = ")\n\t- Misformated header encountered.\n\0";
+	file->msg[12] = ")\n\t- Wrong data offset (expected 122 Bytes).\n\0";
+	file->msg[13] = ")\n\t- Null resolution found (expected at least 1px).\n\0";
+	file->msg[14] = ")\n\t- Wrong scanline size (expected multiple of 4).\n\0";
 }
 
 void		presets(t_file *file)
