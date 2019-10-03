@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 17:59:02 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/02 06:22:39 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/03 02:31:49 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ typedef enum		e_errors
 	BMP_E_DIB,
 	BMP_E_BPP,
 	BMP_E_COMPRESSION,
-	BMP_WIP
+	BMP_E_IMAGE,
+	BMP_E_HEADER,
+	BMP_WIP,
+	BMP_ERROR_COUNT
 }					t_errors;
 
 typedef	struct		s_vec
@@ -71,6 +74,7 @@ typedef struct		s_info
 
 typedef struct		s_file
 {
+	char			*msg[BMP_ERROR_COUNT];
 	t_info			info;
 	uint8_t			*stream;
 	uint32_t		*pixels;
@@ -90,19 +94,19 @@ typedef struct		s_bmp
 int					bmp_to_array(char *bmp, t_bmp *image);
 
 /*
-**	clean/clean.c
+**	clean/flush_streams.c
 */
 
 int					wipe(t_file *file, uint32_t status);
 
 /*
-**	display/display.c
+**	display/exit_status.c
 */
 
-int					dislay_output(uint32_t status);
+int					dislay_output(t_file *file, uint32_t status);
 
 /*
-**	setup/setup.c
+**	setup/infos.c
 */
 
 void				presets(t_file *file);
@@ -115,9 +119,12 @@ void				setup_infos(t_info *data);
 int					check_header(t_file *file);
 int					check_signature(uint8_t *buffer);
 int					check_size(uint32_t *weight, uint8_t *buffer);
+
 /*
-**	chuncks/size.c
+**	chuncks/image.c
 */
+
+int					build_image(t_file *file);
 
 /*
 **	maths/endians.c
@@ -131,7 +138,7 @@ uint32_t			swap4(uint32_t x);
 */
 
 uint8_t				padding(t_dib dib);
-uint32_t			memory(t_dib dib, uint8_t *bytes);
+uint32_t			memory(t_dib dib);
 uint32_t			scanline(t_dib dib, uint8_t padding);
 
 #endif
