@@ -6,13 +6,13 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 19:43:21 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/03 02:30:30 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/03 06:24:16 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
-#include "bmp.h"
 #include "libft.h"
+#include "bmp.h"
 
 int			dislay_output(t_file *file, uint32_t status)
 {
