@@ -6,7 +6,7 @@
 #    By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 16:29:02 by kibotrel          #+#    #+#              #
-#    Updated: 2019/10/03 05:09:06 by kibotrel         ###   ########.fr        #
+#    Updated: 2019/10/03 07:02:23 by kibotrel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 # Executable / Library (Can be changed).
 
 FT				= libft.a
-NAME			= a.out #libbmp.a
+NAME			= libbmp.a
 
 # Color codes (Can be changed).
 
@@ -27,7 +27,7 @@ YELLOW			= \033[33m
 
 # Libraries (Can be changed).
 
-LFT_DIR			= ../../School/42-Libft #../libft
+LFT_DIR			= ../libft
 
 # Project (Can be changed).
 
@@ -38,7 +38,7 @@ OBJS_DIR		= objs
 # writing the full path upon include (Can be changed).
 
 INCS_DIR		:= incs
-INCS_DIR		+= ../../School/42-Libft/incs #../libft/incs
+INCS_DIR		+= ../libft/incs
 
 # All the subdirectories used in the project
 # to organise source files (Can be changed).
@@ -65,8 +65,8 @@ INCS			+= incs/macros.h
 
 SRCS			:= core/bmp_to_array.c
 SRCS			+= clean/flush_streams.c
-SRCS			+= maths/endians.c
 SRCS			+= maths/infos.c
+SRCS			+= maths/endians.c
 SRCS			+= setup/infos.c
 SRCS			+= setup/image.c
 SRCS			+= chunks/image.c
@@ -114,7 +114,7 @@ all: $(C_SUBDIRS) $(NAME)
 
 $(NAME): $(LFT) $(OBJS_DIR) $(C_OBJS)
 	@ echo "$(YELLOW)\n      - Building $(RESET)$(NAME) $(YELLOW)...\n$(RESET)"
-	@ $(CC) $(CFLAGS) -o $(NAME) $(C_OBJS) $(LIBS) #@ar rcs $(NAME) $(C_OBJS)
+	@ ar rcs $(NAME) $(C_OBJS)
 	@ echo "$(GREEN)***   Project $(NAME) successfully compiled   ***\n$(RESET)"
 
 # Libraries installion using their own Makefile (Can be changed).
@@ -128,7 +128,7 @@ $(OBJS_DIR):
 	@ mkdir -p $(OBJS_DIR)
 
 $(C_SUBDIRS):
-	@ mkdir -p $(C_SUBDIRS)
+	mkdir -p $(C_SUBDIRS)
 
 # Deleting all .o files. (Can't be changed).
 
@@ -142,6 +142,7 @@ clean:
 fclean: clean
 	@ echo "$(GREEN)***   Deleting library $(NAME)   ...   ***\n$(RESET)"
 	@ $(RM) $(NAME)
+
 # Re-compile everything (Can't be changed).
 
 re: fclean all
