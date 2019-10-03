@@ -1,6 +1,8 @@
 # Objects directories - Files
 objs
 *.o
+test
+*.bmp
 
 # Static libraries - Headers
 *.a
