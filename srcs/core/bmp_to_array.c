@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 17:58:02 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/03 06:23:01 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/03 10:28:34 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,4 @@ int			bmp_to_array(char *bmp, t_bmp *img)
 		return (wipe(&file, file.info.error));
 	else
 		return (wipe(&file, parse_bmp(&file, img)));
-}
-
-int			main(int ac, char **av)
-{
-	int		i;
-	t_bmp	image;
-
-	i = 0;
-	while (++i < ac)
-		bmp_to_array(av[i], &image);
-	return (0);
 }
