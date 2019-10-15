@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 17:59:02 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/16 00:33:04 by kibotrel         ###   ########.fr       */
+/*   Updated: 2019/10/16 00:41:52 by kibotrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ typedef struct		s_file
 
 typedef struct		s_bmp
 {
-	uint32_t		width;
-	uint32_t		height;
+	int32_t			width;
+	int32_t			height;
 	uint32_t		*pixels;
 }					t_bmp;
 
