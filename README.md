@@ -77,9 +77,9 @@ This function returns `0` if the process ended correctly, a particular error-cod
 ```C
 typedef struct  s_bmp
 {
-	int32_t     width;
-	int32_t     height;
-	uint32_t    *pixels;
+    int32_t     width;
+    int32_t     height;
+    uint32_t    *pixels;
 }               t_bmp;
 ```
 ### Breakdown
