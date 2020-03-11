@@ -75,12 +75,12 @@ int     bmp_to_array(char *path, t_bmp *image);
 
 This function returns `0` if the process ended correctly, a particular error-code (documented bellow) is returned. Said header files `bmp.h` and `./incs/`. Type `t_bmp` is defined as follow :
 ```C
-typedef struct	s_bmp
+typedef struct  s_bmp
 {
-	int32_t		width;
-	int32_t		height;
-	uint32_t	*pixels;
-}				t_bmp;
+	int32_t     width;
+	int32_t     height;
+	uint32_t    *pixels;
+}               t_bmp;
 ```
 ### Breakdown
 
