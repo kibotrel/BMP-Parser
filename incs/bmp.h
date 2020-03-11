@@ -6,7 +6,7 @@
 /*   By: kibotrel <kibotrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 17:59:02 by kibotrel          #+#    #+#             */
-/*   Updated: 2019/10/16 00:41:52 by kibotrel         ###   ########.fr       */
+/*   Updated: 2020/03/11 14:50:24 by vivi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef	struct		s_dib
 	uint32_t		raw;
 	uint32_t		size;
 	uint32_t		colors;
-
 }					t_dib;
 
 typedef struct		s_info
