@@ -1,5 +1,6 @@
 # BMP-Parser
 [![CodeFactor](https://www.codefactor.io/repository/github/kibotrel/bmp-parser/badge)](https://www.codefactor.io/repository/github/kibotrel/bmp-parser)
+
 This project is made to parse and load BMP [(Windows Bitmap)](https://en.wikipedia.org/wiki/BMP_file_format) files using this small library.
 
 ## Install
@@ -8,19 +9,22 @@ This should be fully portable (tested on **macOS Sierra 10.12.6**, **macOS Mojav
 
 ```shell
 $> git clone https://github.com/kibotrel/42-Libft libft
-$> git clone --recurse-submodules https://github.com/kibotrel/BMP-Parser libbmp
+$> git clone https://github.com/kibotrel/BMP-Parser libbmp
 $> make -C libft && make -C libbmp
 ```
 
 You will get a static library called **libbmp.a** at the root of **libbmp** folder. In order to use it afterwards you may have to include it to the compilation when you call any function of the library in another project.
 
 ```shell
-$> gcc -I./libft/incs -I./libpng/incs/ -L./libft/ -lft -L./libbmp/ -lbmp [...]
+$> gcc -I./libft/incs -I./libmp/incs/ -L./libft/ -lft -L./libbmp/ -lbmp [...]
 ```
 
 This process can be automated using a **Makefile** in the parent folder of these two libraries as folowing :
 
 ```Makefile
+
+[...]
+
 # All the directories needed to know where files should be.
 
 LFT_DIR  = libft/
@@ -30,13 +34,13 @@ LBMP_DIR = libbmp/
 # The two different libraries.
 
 LFT     = ./libft/libft.a
-LPNG    = ./libbmp/libbmp.a
+LBMP   = ./libbmp/libbmp.a
 
 
 # Setup compilation arguments.
 
 CC       = gcc
-LIBS     = -L$(LFT_DIR) -lft -L$(LBMP_DIR) -lpng [...]
+LIBS     = -L$(LFT_DIR) -lft -L$(LBMP_DIR) -lbmp [...]
 CFLAGS   = $(INCLUDES) -Wall -Wextra -Werror [...]
 INCLUDES = $(foreach include, $(INCS_DIR), -I$(include))
 
