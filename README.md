@@ -75,12 +75,12 @@ int     bmp_to_array(char *path, t_bmp *image);
 
 This function returns `0` if the process ended correctly, a particular error-code (documented bellow) is returned. Said header files `bmp.h` and `./incs/`. Type `t_bmp` is defined as follow :
 ```C
-typedef struct		s_bmp
+typedef struct	s_bmp
 {
-	int32_t			width;
-	int32_t			height;
-	uint32_t		*pixels;
-}					t_bmp;
+	int32_t		width;
+	int32_t		height;
+	uint32_t	*pixels;
+}				t_bmp;
 ```
 ### Breakdown
 
@@ -101,7 +101,7 @@ Each following error is handled by the program leading to a complete memory free
 * Failed to close the given file (*ERROR-CODE 5*)
 * Wrong file signature (*ERROR-CODE 6*)
 * Failed to reposition reading offset (*ERROR-CODE 7*)
-* [DIB](https://en.wikipedia.org/wiki/BMP_file_format#DIB_header_(bitmap_information_header) not supported by the parser (*ERROR-CODE 8*)
+* [DIB](https://en.wikipedia.org/wiki/BMP_file_format#DIB_header_(bitmap_information_header)) not supported by the parser (*ERROR-CODE 8*)
 * Bits per pixel not supported (*ERROR-CODE 9*)
 * Compression method not supported (*ERROR-CODE 10*)
 * Corrupted header or DIB encountered (*ERROR-CODE 11*)
